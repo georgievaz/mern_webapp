@@ -6,11 +6,11 @@ import { useDispatch } from 'react-redux';
 import { createPost } from '../../actions/posts'; 
 
 const Form = () => {
-    const classes = useStyles; 
     const [postData, setPostData] = useState({
         creator:' ', title:'', message:'', tags:'', selectedFile:''
     });
     const dispatch = useDispatch();
+    const classes = useStyles; 
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,7 +41,7 @@ const Form = () => {
                     <FileBase 
                     type="file"
                     multiple={false}
-                    onDone={({base64})=> setPostData({...postData, selectedFie:base64})}
+                    onDone={({base64})=> setPostData({...postData, selectedFile:base64})}
                     /></div>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" fullWidth type="submit" >
                     Submit </Button>
@@ -50,6 +50,6 @@ const Form = () => {
             </form>
         </Paper>
     );
-}
+};
 
 export default Form;
